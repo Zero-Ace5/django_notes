@@ -1,0 +1,21 @@
+<h1>Notes</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add</button>
+</form>
+
+<hr>
+
+<ul>
+    {% for note in notes %}
+    <li>
+        {{ note.text }}
+        <a href="/delete/{{ note.id }}/">Delete</a>
+    </li>
+
+    {% empty %}
+    <li>No Notes Yet.</li>
+    {% endfor %}
+</ul>
