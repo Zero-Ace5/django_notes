@@ -1,5 +1,8 @@
-<h1>Notes</h1>
+{% extends "base.html" %}
 
+{% block title %}Notes{% endblock %}
+
+{% block content %}
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
@@ -23,3 +26,4 @@
     <li>No Notes Yet.</li>
     {% endfor %}
 </ul>
+{% endblock %}
