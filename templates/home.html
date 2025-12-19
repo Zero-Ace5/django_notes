@@ -12,7 +12,11 @@
     {% for note in notes %}
     <li>
         {{ note.text }}
-        <a href="/delete/{{ note.id }}/">Delete</a>
+        <!-- <a href="/delete/{{ note.id }}/">Delete</a> -->
+        <form method="POST" action="{% url 'notes:delete_note' note.id %}" style="display: inline">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
     </li>
 
     {% empty %}
